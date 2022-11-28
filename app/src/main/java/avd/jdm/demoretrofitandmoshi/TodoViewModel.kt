@@ -13,7 +13,7 @@ private const val TAG = "TodoViewModel"
 class TodoViewModel : ViewModel() {
 
     private val _todoResponse: MutableLiveData<String> = MutableLiveData()
-    val todoResponse: LiveData<String> // todo: replace with List<TodoItem>
+    val todoResponse: LiveData<String> // this livedata value is bound to a TextView.text property
         get() = _todoResponse
 
     init {
@@ -22,7 +22,7 @@ class TodoViewModel : ViewModel() {
 
     fun getTodoItems() {
         viewModelScope.launch {
-            _todoResponse.value = TodoApi.retrofitService.getTodos()
+            _todoResponse.value = TodoApi.retrofitService.getTodos().toString()
         }
     }
 

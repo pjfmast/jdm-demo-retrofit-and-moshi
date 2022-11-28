@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import avd.jdm.demoretrofitandmoshi.databinding.ActivityMainBinding
+import io.github.serpro69.kfaker.Faker
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -28,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.postBtn.setOnClickListener {
-            val todoItem = TodoItem(1, null, "Learn Moshi", false)
+            val faker = Faker()
+            val todoItem = TodoItem(null, faker.random.nextInt(10,100), faker.food.dish(), faker.random.nextBoolean())
             todoViewModel.postTodoItem(todoItem)
         }
     }

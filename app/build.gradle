@@ -10,7 +10,7 @@ android {
     buildFeatures {
         viewBinding true
     }
-    
+
     defaultConfig {
         applicationId "avd.jdm.demoretrofitandmoshi"
         minSdk 28
@@ -58,4 +58,7 @@ dependencies {
     // Combining Retrofit and Moshi library for Kotlin
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
     implementation 'com.squareup.moshi:moshi-kotlin:1.12.0'
+
+    // for generating fake data, see https://serpro69.github.io/kotlin-faker/
+    implementation 'io.github.serpro69:kotlin-faker:1.12.0'
 }

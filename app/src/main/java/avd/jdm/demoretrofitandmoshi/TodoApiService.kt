@@ -23,8 +23,9 @@ interface TodoApiService {
     suspend fun postItem(@Body todoItem: TodoItem): TodoItem
 }
 
-private val BASE_URL = "https://jsonplaceholder.typicode.com/"
-//    "http://10.0.26.2:8080/"
+private val BASE_URL
+//= "https://jsonplaceholder.typicode.com/"
+=    "http://10.0.2.2:8080/"
 
 
 private val moshi = Moshi.Builder()

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DemoRetrofitAndMoshi</string>
+    <string name="result_of_request">result of request</string>
+    <string name="get">Get</string>
+    <string name="delete">Delete</string>
+    <string name="post">Post</string>
+</resources>

@@ -8,6 +8,8 @@ import io.github.serpro69.kfaker.Faker
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val faker = Faker()
+    private var lastId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        val todoViewModel:TodoViewModel by viewModels()
+        val todoViewModel: TodoViewModel by viewModels()
         todoViewModel.todoResponse.observe(this) {
             binding.result.text = todoViewModel.todoResponse.value
         }
@@ -25,13 +27,27 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.deleteBtn.setOnClickListener {
-            todoViewModel.deleteTodoItem(1)
+            todoViewModel.deleteTodoItem()
         }
 
         binding.postBtn.setOnClickListener {
-            val faker = Faker()
-            val todoItem = TodoItem(null, faker.random.nextInt(10,100), faker.food.dish(), faker.random.nextBoolean())
+            val todoItem = TodoItem(
+                null,
+                faker.random.nextInt(10, 100),
+                faker.food.dish(),
+                faker.random.nextBoolean()
+            )
             todoViewModel.postTodoItem(todoItem)
+        }
+
+        binding.putBtn.setOnClickListener {
+            val todoItem = TodoItem(
+                1,
+                faker.random.nextInt(10, 100),
+                faker.food.dish(),
+                faker.random.nextBoolean()
+            )
+            todoViewModel.putTodoItem(todoItem)
         }
     }
 }

@@ -3,7 +3,7 @@ package avd.jdm.demoretrofitandmoshi
 import com.squareup.moshi.Json
 
 data class TodoItem(
-    @Json(name = "todoId")
+    @Json(name = "id")
     val id: Int? = null,
 
     @Json(name = "userId")
